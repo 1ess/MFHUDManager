@@ -1,10 +1,4 @@
-//
-//  MFNotificationHUD.h
-//
-//
-//
-//  Copyright © 2017年 zhn. All rights reserved.
-//
+
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>

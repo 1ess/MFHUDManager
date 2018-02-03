@@ -1,10 +1,4 @@
-//
-//  ZHNTopHud.m
-//  ZHNCosmos
-//
-//  Created by zhn on 2017/10/31.
-//  Copyright © 2017年 zhn. All rights reserved.
-//
+
 
 #import "MFNotificationHUD.h"
 #import "MFMacro.h"
