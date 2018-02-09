@@ -6,7 +6,6 @@
 //config
 + (void)setHUDType:(MFHUDType)hudType;
 + (void)setMaskType:(MFHUDMaskType)maskType;
-+ (void)setNetworkActivityIndicatorVisible:(BOOL)networkActivityIndicatorVisible;
 //function
 + (BOOL)isShowing;
 + (void)showWarning:(NSString *)warning;

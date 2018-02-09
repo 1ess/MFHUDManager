@@ -16,7 +16,6 @@ typedef NS_ENUM(NSInteger, MFHUDType) {
 @interface MFNotificationHUD : NSObject
 @property (nonatomic, assign) MFHUDType hudType;
 @property (nonatomic, assign) MFHUDMaskType maskType;
-@property (nonatomic, assign) BOOL networkActivityIndicatorVisible;
 + (MFNotificationHUD *)shareinstance;
 + (BOOL)isShowing;
 + (void)showMessage:(NSString *)message withIconImageName:(NSString *)iconImageName;

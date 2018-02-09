@@ -9,9 +9,6 @@
 + (void)setMaskType:(MFHUDMaskType)maskType {
     [MFNotificationHUD shareinstance].maskType = maskType;
 }
-+ (void)setNetworkActivityIndicatorVisible:(BOOL)networkActivityIndicatorVisible {
-    [MFNotificationHUD shareinstance].networkActivityIndicatorVisible = networkActivityIndicatorVisible;
-}
 + (BOOL)isShowing {
     return [MFNotificationHUD isShowing];
 }

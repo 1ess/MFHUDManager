@@ -22,11 +22,24 @@ pod 'MFHUDManager'
 ```
 
 - 初始化并显示
-在 appDelegate 里初始化, 并设置 HUD 的类型
+在 appDelegate 里设置 HUD 的类型
 
 ```objc
+typedef NS_ENUM(NSInteger, MFHUDMaskType) {
+    MFHUDMaskTypeDark,
+    MFHUDMaskTypeLight,
+};
+
+typedef NS_ENUM(NSInteger, MFHUDType) {
+    MFHUDTypeNormal,
+    MFHUDTypeLarge,
+};
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [MFHUDManager setHUDType:MFHUDTypeLarge];
+    //[MFHUDManager setHUDType:MFHUDTypeNormal];  -- 默认
+    [MFHUDManager setMaskType:MFHUDMaskTypeDark];
+    //[MFHUDManager setMaskType:MFHUDMaskTypeLight]; --默认
 }
 ```
 

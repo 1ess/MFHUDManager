@@ -4,13 +4,12 @@
 #import "MFMacro.h"
 #import "UIView+MFFrame.h"
 static BOOL _showing;
-static BOOL _indicatorVisible;
+
 @interface MFNotificationHUD()
 @property (nonatomic, strong) UIWindow *hudWindow;
 @property (nonatomic, strong) UILabel *titleLabel;
 
 @property (nonatomic, strong) UIImageView *iconImageView;
-@property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
 @property (nonatomic, strong) UIImageView *hudContainerView;
 @property (nonatomic, strong) UIVisualEffectView *blurEffectView;
 @property (nonatomic, strong) NSTimer *dismissTimer;
@@ -23,7 +22,7 @@ static BOOL _indicatorVisible;
     dispatch_once(&onceToken, ^{
         // hud
         hud = [[MFNotificationHUD alloc] init];
-        hud.networkActivityIndicatorVisible = YES;
+        
         UIWindow *window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
         hud.hudWindow = window;
         UIViewController *tempRootViewController = [[UIViewController alloc] init];
@@ -104,11 +103,6 @@ static BOOL _indicatorVisible;
     
 }
 
-- (void)setNetworkActivityIndicatorVisible:(BOOL)networkActivityIndicatorVisible {
-    _networkActivityIndicatorVisible = networkActivityIndicatorVisible;
-    _indicatorVisible = networkActivityIndicatorVisible;
-}
-
 + (BOOL)isShowing {
     return _showing;
 }
@@ -116,11 +110,6 @@ static BOOL _indicatorVisible;
 + (void)showLoadingWithMessage:(NSString *)message {
     dispatch_async(dispatch_get_main_queue(), ^{
         _showing = YES;
-        if (_indicatorVisible) {
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-        }else {
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        }
         [MFNotificationHUD shareinstance].iconImageView.image = nil;
         [MFNotificationHUD shareinstance].titleLabel.text = message;
         [MFNotificationHUD shareinstance].hudWindow.hidden = NO;
