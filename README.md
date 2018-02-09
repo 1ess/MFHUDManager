@@ -1,5 +1,5 @@
 # MFHUDManager
-类似于<Cosmos>应用的HUD效果
+类似于Cosmos应用的HUD效果
 
 - 支持 iOS 9 及以上
 
