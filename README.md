@@ -43,7 +43,7 @@ pod 'MFHUDManager'
 ```
 注意: show 方法会自动 hide, 如果要手动隐藏可以显示调用 dismiss
 ```objc
-    [MFHUDManager dismiss];
+[MFHUDManager dismiss];
 ```
 
 - 其他配置
