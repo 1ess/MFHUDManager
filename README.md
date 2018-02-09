@@ -64,7 +64,6 @@ typedef NS_ENUM(NSInteger, MFHUDType) {
 ```objc
 + (void)setHUDType:(MFHUDType)hudType;
 + (void)setMaskType:(MFHUDMaskType)maskType;
-+ (void)setNetworkActivityIndicatorVisible:(BOOL)networkActivityIndicatorVisible;
 ```
 
 ## License
