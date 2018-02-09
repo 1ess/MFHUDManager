@@ -124,7 +124,6 @@ static BOOL _showing;
 + (void)showMessage:(NSString *)message withIconImageName:(NSString *)iconImageName {
     dispatch_async(dispatch_get_main_queue(), ^{
         _showing = YES;
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         [[MFNotificationHUD shareinstance].indicatorView stopAnimating];
         [MFNotificationHUD shareinstance].iconImageView.image = [UIImage imageNamed:iconImageName];
         [MFNotificationHUD shareinstance].titleLabel.text = message;
