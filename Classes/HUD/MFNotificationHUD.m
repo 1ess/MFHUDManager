@@ -25,9 +25,6 @@ static BOOL _showing;
         
         UIWindow *window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
         hud.hudWindow = window;
-        UIViewController *tempRootViewController = [[UIViewController alloc] init];
-        tempRootViewController.view.userInteractionEnabled = NO;
-        window.rootViewController = tempRootViewController;
         window.userInteractionEnabled = NO;
         window.windowLevel = UIWindowLevelStatusBar + 999;
         // containerView
