@@ -46,17 +46,22 @@ typedef NS_ENUM(NSInteger, MFHUDType) {
 - 调用方法即可
 
 ```objc
-
+{
+    ...
     [MFHUDManager showLoading:@"..."];
-    [MFHUDManager showSuccess:@"..."];
-    [MFHUDManager showError:@"..."];
-    [MFHUDManager showWarning:@"..."];
-
+    //or [MFHUDManager showSuccess:@"..."];
+    //or [MFHUDManager showError:@"..."];
+    //or [MFHUDManager showWarning:@"..."];
+    ...
 }
 ```
-注意: show 方法会自动 hide, 如果要手动隐藏可以显示调用 dismiss
+注意: 除了 showLoading 方法, 其他 show 方法会自动 hide, 如果要手动隐藏可以显示调用 dismiss
 ```objc
-[MFHUDManager dismiss];
+{
+    ...
+    [MFHUDManager dismiss];
+    ...
+}
 ```
 
 - 其他配置
