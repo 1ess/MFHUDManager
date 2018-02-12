@@ -8,7 +8,7 @@ static BOOL _showing;
 @interface MFNotificationHUD()
 @property (nonatomic, strong) UIWindow *hudWindow;
 @property (nonatomic, strong) UILabel *titleLabel;
-
+@property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
 @property (nonatomic, strong) UIImageView *iconImageView;
 @property (nonatomic, strong) UIImageView *hudContainerView;
 @property (nonatomic, strong) UIVisualEffectView *blurEffectView;
