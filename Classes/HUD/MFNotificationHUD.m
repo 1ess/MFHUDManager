@@ -1,4 +1,7 @@
-
+//
+//  Created by 张冬冬.
+//  Copyright © 2018年 张冬冬. All rights reserved.
+//
 
 #import "MFNotificationHUD.h"
 #import "MFMacro.h"
@@ -105,6 +108,7 @@ static BOOL _showing;
 
 + (void)showLoadingWithMessage:(NSString *)message {
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self p_hideStautsBar];
         _showing = YES;
         [MFNotificationHUD shareinstance].iconImageView.image = nil;
         [MFNotificationHUD shareinstance].titleLabel.text = message;
@@ -119,6 +123,7 @@ static BOOL _showing;
 
 + (void)showMessage:(NSString *)message withIconImageName:(NSString *)iconImageName {
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self p_hideStautsBar];
         _showing = YES;
         [[MFNotificationHUD shareinstance].indicatorView stopAnimating];
         [MFNotificationHUD shareinstance].iconImageView.image = [UIImage imageNamed:iconImageName];
@@ -162,8 +167,19 @@ static BOOL _showing;
         [MFNotificationHUD shareinstance].hudContainerView.transform = CGAffineTransformMakeTranslation(0, - height - kTopContentInset - 30);
     } completion:^(BOOL finished) {
         [MFNotificationHUD shareinstance].hudWindow.hidden = YES;
+        [self p_showStatusBar];
         _showing = NO;
     }];
+}
+
++ (void)p_hideStautsBar {
+    UIView *statusBar = [[UIApplication sharedApplication] valueForKey:@"statusBar"];
+    statusBar.alpha = 0;
+}
+
++ (void)p_showStatusBar {
+    UIView *statusBar = [[UIApplication sharedApplication] valueForKey:@"statusBar"];
+    statusBar.alpha = 1;
 }
 
 + (void)p_delayDismissAnimate {

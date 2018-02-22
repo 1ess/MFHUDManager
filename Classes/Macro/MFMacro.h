@@ -1,6 +1,6 @@
 //
-//  MFMacro.h
-
+//  Created by 张冬冬.
+//  Copyright © 2018年 张冬冬. All rights reserved.
 //
 
 #ifndef MFMacro_h
