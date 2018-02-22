@@ -1,4 +1,5 @@
 # MFHUDManager
+[![DUB](https://img.shields.io/dub/l/vibe-d.svg)]()
 类似于Cosmos应用的HUD效果
 
 - 支持 iOS 9 及以上
