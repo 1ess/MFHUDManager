@@ -6,6 +6,7 @@
 #import "MFNotificationHUD.h"
 #import "MFMacro.h"
 #import "UIView+MFFrame.h"
+#import "NSTimer+MFWeakTimer.h"
 static BOOL _showing;
 
 @interface MFNotificationHUD()
@@ -114,7 +115,7 @@ static BOOL _showing;
         [MFNotificationHUD shareinstance].titleLabel.text = message;
         [MFNotificationHUD shareinstance].hudWindow.hidden = NO;
         [[MFNotificationHUD shareinstance].indicatorView startAnimating];
-        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:2 options:UIViewAnimationOptionCurveLinear animations:^{
+        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.6 initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseOut animations:^{
             [MFNotificationHUD shareinstance].hudContainerView.transform = CGAffineTransformIdentity;
         } completion:^(BOOL finished) {
         }];
@@ -130,7 +131,7 @@ static BOOL _showing;
         [MFNotificationHUD shareinstance].titleLabel.text = message;
         [MFNotificationHUD p_delayDismissAnimate];
         [MFNotificationHUD shareinstance].hudWindow.hidden = NO;
-        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:2 options:UIViewAnimationOptionCurveLinear animations:^{
+        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.6 initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseOut animations:^{
             [MFNotificationHUD shareinstance].hudContainerView.transform = CGAffineTransformIdentity;
         } completion:^(BOOL finished) {
         }];
@@ -156,18 +157,20 @@ static BOOL _showing;
 }
 
 + (void)tapticEngine {
-    UIImpactFeedbackGenerator *generator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
-    [generator prepare];
-    [generator impactOccurred];
+    if (@available(iOS 10.0, *)) {
+        UIImpactFeedbackGenerator *generator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
+        [generator prepare];
+        [generator impactOccurred];
+    }
 }
 
 + (void)dismiss {
     CGFloat height = [MFNotificationHUD shareinstance].hudType == MFHUDTypeNormal ? kContentHeight : 50;
     [UIView animateWithDuration:0.3 animations:^{
+        [self p_showStatusBar];
         [MFNotificationHUD shareinstance].hudContainerView.transform = CGAffineTransformMakeTranslation(0, - height - kTopContentInset - 30);
     } completion:^(BOOL finished) {
         [MFNotificationHUD shareinstance].hudWindow.hidden = YES;
-        [self p_showStatusBar];
         _showing = NO;
     }];
 }
@@ -188,10 +191,18 @@ static BOOL _showing;
     [hud.dismissTimer invalidate];
     hud.dismissTimer = nil;
     // init new timer
-    NSTimer *timer = [NSTimer timerWithTimeInterval:2 repeats:NO block:^(NSTimer * _Nonnull timer) {
-        [MFNotificationHUD dismiss];
-    }];
-    hud.dismissTimer = timer;
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    if (@available(iOS 10.0, *)) {
+        NSTimer *timer = [NSTimer timerWithTimeInterval:2 repeats:NO block:^(NSTimer * _Nonnull timer) {
+            [MFNotificationHUD dismiss];
+        }];
+        hud.dismissTimer = timer;
+        [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    } else {
+        NSTimer *timer = [NSTimer mf_scheduledTimerWithTimeInterval:2 repeats:NO block:^{
+            [MFNotificationHUD dismiss];
+        }];
+        hud.dismissTimer = timer;
+        [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    }
 }
 @end

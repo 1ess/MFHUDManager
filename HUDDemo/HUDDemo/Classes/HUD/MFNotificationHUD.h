@@ -6,8 +6,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 typedef NS_ENUM(NSInteger, MFHUDMaskType) {
-    MFHUDMaskTypeDark,
     MFHUDMaskTypeLight,
+    MFHUDMaskTypeDark,
 };
 
 typedef NS_ENUM(NSInteger, MFHUDType) {

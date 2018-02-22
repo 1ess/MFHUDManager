@@ -6,6 +6,8 @@
 #import <Foundation/Foundation.h>
 #import "MFNotificationHUD.h"
 @interface MFHUDManager : NSObject
++ (MFHUDType)hudType;
++ (MFHUDMaskType)maskType;
 //config
 + (void)setHUDType:(MFHUDType)hudType;
 + (void)setMaskType:(MFHUDMaskType)maskType;

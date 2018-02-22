@@ -16,6 +16,9 @@
 		4AA0F803203EA4520099F3E4 /* UIView+MFFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0F7FB203EA4520099F3E4 /* UIView+MFFrame.m */; };
 		4AA0F804203EA4520099F3E4 /* MFHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0F7FE203EA4520099F3E4 /* MFHUDManager.m */; };
 		4AA0F805203EA4520099F3E4 /* MFNotificationHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0F800203EA4520099F3E4 /* MFNotificationHUD.m */; };
+		4AA0F808203EB0980099F3E4 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0F807203EB0980099F3E4 /* SettingViewController.m */; };
+		4AA0F80B203EB1800099F3E4 /* NSTimer+MFWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0F809203EB1800099F3E4 /* NSTimer+MFWeakTimer.m */; };
+		4AA0F80E203EB3770099F3E4 /* SettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0F80D203EB3770099F3E4 /* SettingModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,12 @@
 		4AA0F7FF203EA4520099F3E4 /* MFNotificationHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFNotificationHUD.h; sourceTree = "<group>"; };
 		4AA0F800203EA4520099F3E4 /* MFNotificationHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFNotificationHUD.m; sourceTree = "<group>"; };
 		4AA0F802203EA4520099F3E4 /* MFMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFMacro.h; sourceTree = "<group>"; };
+		4AA0F806203EB0980099F3E4 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		4AA0F807203EB0980099F3E4 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		4AA0F809203EB1800099F3E4 /* NSTimer+MFWeakTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+MFWeakTimer.m"; sourceTree = "<group>"; };
+		4AA0F80A203EB1800099F3E4 /* NSTimer+MFWeakTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+MFWeakTimer.h"; sourceTree = "<group>"; };
+		4AA0F80C203EB3770099F3E4 /* SettingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingModel.h; sourceTree = "<group>"; };
+		4AA0F80D203EB3770099F3E4 /* SettingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +82,10 @@
 				4AA0F7E3203EA4130099F3E4 /* AppDelegate.m */,
 				4AA0F7E5203EA4130099F3E4 /* ViewController.h */,
 				4AA0F7E6203EA4130099F3E4 /* ViewController.m */,
+				4AA0F806203EB0980099F3E4 /* SettingViewController.h */,
+				4AA0F807203EB0980099F3E4 /* SettingViewController.m */,
+				4AA0F80C203EB3770099F3E4 /* SettingModel.h */,
+				4AA0F80D203EB3770099F3E4 /* SettingModel.m */,
 				4AA0F7E8203EA4130099F3E4 /* Main.storyboard */,
 				4AA0F7EB203EA4130099F3E4 /* Assets.xcassets */,
 				4AA0F7ED203EA4130099F3E4 /* LaunchScreen.storyboard */,
@@ -95,6 +108,8 @@
 		4AA0F7F9203EA4520099F3E4 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				4AA0F80A203EB1800099F3E4 /* NSTimer+MFWeakTimer.h */,
+				4AA0F809203EB1800099F3E4 /* NSTimer+MFWeakTimer.m */,
 				4AA0F7FA203EA4520099F3E4 /* UIView+MFFrame.h */,
 				4AA0F7FB203EA4520099F3E4 /* UIView+MFFrame.m */,
 			);
@@ -192,10 +207,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AA0F7E7203EA4130099F3E4 /* ViewController.m in Sources */,
+				4AA0F80B203EB1800099F3E4 /* NSTimer+MFWeakTimer.m in Sources */,
 				4AA0F803203EA4520099F3E4 /* UIView+MFFrame.m in Sources */,
 				4AA0F7F2203EA4130099F3E4 /* main.m in Sources */,
+				4AA0F808203EB0980099F3E4 /* SettingViewController.m in Sources */,
 				4AA0F805203EA4520099F3E4 /* MFNotificationHUD.m in Sources */,
 				4AA0F7E4203EA4130099F3E4 /* AppDelegate.m in Sources */,
+				4AA0F80E203EB3770099F3E4 /* SettingModel.m in Sources */,
 				4AA0F804203EA4520099F3E4 /* MFHUDManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +351,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5D33D27VC6;
 				INFOPLIST_FILE = HUDDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.microfeel.HUDDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -347,6 +366,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5D33D27VC6;
 				INFOPLIST_FILE = HUDDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.microfeel.HUDDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

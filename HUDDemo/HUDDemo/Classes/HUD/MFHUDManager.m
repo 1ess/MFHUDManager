@@ -6,6 +6,15 @@
 #import "MFHUDManager.h"
 
 @implementation MFHUDManager
+
++ (MFHUDType)hudType {
+    return [MFNotificationHUD shareinstance].hudType;
+}
+
++ (MFHUDMaskType)maskType {
+    return [MFNotificationHUD shareinstance].maskType;
+}
+
 + (void)setHUDType:(MFHUDType)hudType {
     [MFNotificationHUD shareinstance].hudType = hudType;
 }
