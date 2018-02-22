@@ -31,7 +31,6 @@ static BOOL _showing;
         
         UIImageView *containerView = [[UIImageView alloc] initWithFrame:CGRectMake(KLeftContentInset, kTopContentInset, Width - 2 * KLeftContentInset, kContentHeight)];
         hud.hudContainerView = containerView;
-        hud.hudContainerView.backgroundColor = [UIColor clearColor];
         [window addSubview:containerView];
         containerView.layer.cornerRadius = KCornerRadius;
         
@@ -60,10 +59,9 @@ static BOOL _showing;
         hud.titleLabel = titleLabel;
         hud.titleLabel.textColor = [UIColor blackColor];
         [containerView addSubview:titleLabel];
-    
         titleLabel.frame = CGRectMake(40, 0, Width - 50, kContentHeight);
         // shadow
-        containerView.layer.shadowColor = [UIColor whiteColor].CGColor;
+        containerView.layer.shadowColor = [UIColor blackColor].CGColor;
         containerView.layer.shadowOpacity = 0.5;
         containerView.layer.shadowOffset = CGSizeMake(0, 2);
         // transform
@@ -95,6 +93,7 @@ static BOOL _showing;
         MFNotificationHUD *hud = [MFNotificationHUD shareinstance];
         hud.blurEffectView.effect = [UIBlurEffect effectWithStyle:style];
         hud.titleLabel.textColor = textColor;
+        hud.indicatorView.activityIndicatorViewStyle = maskType == MFHUDMaskTypeLight ? UIActivityIndicatorViewStyleGray : UIActivityIndicatorViewStyleWhite;
         hud.hudContainerView.layer.shadowColor = shadowColor.CGColor;
     });
     

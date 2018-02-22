@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.name         = "MFHUDManager"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "Elegant HUD Manager"
 
   # This description is used to generate tags and improve search results.
