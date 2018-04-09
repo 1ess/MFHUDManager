@@ -9,7 +9,7 @@
 #define Width [UIScreen mainScreen].bounds.size.width
 #define Height [UIScreen mainScreen].bounds.size.height
 #define isIphoneX (Height == 812)
-#define kTopContentInset (isIphoneX ? 20 : 10)
+#define kTopContentInset (isIphoneX ? 35 : 10)
 #define KLeftContentInset 8
 #define KCornerRadius 8
 #define kContentHeight 36
