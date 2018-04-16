@@ -15,6 +15,7 @@ static BOOL _showing;
 @property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
 @property (nonatomic, strong) UIImageView *iconImageView;
 @property (nonatomic, strong) UIImageView *hudContainerView;
+@property (nonatomic, strong) UIView *shadowView;
 @property (nonatomic, strong) UIVisualEffectView *blurEffectView;
 @property (nonatomic, strong) NSTimer *dismissTimer;
 @end
@@ -26,17 +27,28 @@ static BOOL _showing;
     dispatch_once(&onceToken, ^{
         // hud
         hud = [[MFNotificationHUD alloc] init];
-        
+        // window
         UIWindow *window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
         hud.hudWindow = window;
         window.userInteractionEnabled = NO;
         window.windowLevel = UIWindowLevelStatusBar + 999;
-        // containerView
         
+        // containerView
         UIImageView *containerView = [[UIImageView alloc] initWithFrame:CGRectMake(KLeftContentInset, kTopContentInset, Width - 2 * KLeftContentInset, kContentHeight)];
         hud.hudContainerView = containerView;
         [window addSubview:containerView];
         containerView.layer.cornerRadius = KCornerRadius;
+        
+        // shadow
+        UIView *shadowView = [[UIView alloc] init];
+        shadowView.frame = containerView.bounds;
+        shadowView.layer.cornerRadius = KCornerRadius;
+        shadowView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.1];
+        shadowView.layer.shadowColor = [UIColor blackColor].CGColor;
+        shadowView.layer.shadowOpacity = 0.9;
+        shadowView.layer.shadowOffset = CGSizeMake(0, 2);
+        hud.shadowView = shadowView;
+        [containerView addSubview:shadowView];
         
         // blureffect
         UIVisualEffectView *blurView = [[UIVisualEffectView alloc]initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight]];
@@ -45,29 +57,29 @@ static BOOL _showing;
         hud.blurEffectView = blurView;
         blurView.frame = containerView.bounds;
         [containerView addSubview:blurView];
+        
         // icon
         UIImageView *iconImageView = [[UIImageView alloc] init];
         [containerView addSubview:iconImageView];
         CGFloat yDelta = (kContentHeight - 20) / 2;
         iconImageView.frame = CGRectMake(10, yDelta, 20, 20);
         hud.iconImageView = iconImageView;
-        //indicator
+        
+        // indicator
         UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         indicatorView.hidesWhenStopped = YES;
         indicatorView.center = CGPointMake(20, yDelta + 10);
         [containerView addSubview:indicatorView];
         hud.indicatorView = indicatorView;
+        
         // title
-        UILabel *titleLabel = [[UILabel alloc]init];
+        UILabel *titleLabel = [[UILabel alloc] init];
         titleLabel.textAlignment = NSTextAlignmentLeft;
         hud.titleLabel = titleLabel;
         hud.titleLabel.textColor = [UIColor blackColor];
         [containerView addSubview:titleLabel];
         titleLabel.frame = CGRectMake(40, 0, Width - 50, kContentHeight);
-        // shadow
-        containerView.layer.shadowColor = [UIColor blackColor].CGColor;
-        containerView.layer.shadowOpacity = 0.5;
-        containerView.layer.shadowOffset = CGSizeMake(0, 2);
+        
         // transform
         containerView.transform = CGAffineTransformMakeTranslation(0, - (kContentHeight + kTopContentInset));
     });
@@ -81,6 +93,7 @@ static BOOL _showing;
     CGFloat y = hudType == MFHUDTypeNormal ? (kContentHeight - 20) / 2 : 15;
     dispatch_async(dispatch_get_main_queue(), ^{
             hud.hudContainerView.height = height;
+            hud.shadowView.height = height;
             hud.blurEffectView.height = height;
             hud.iconImageView.y = y;
             hud.indicatorView.y = y;
@@ -95,10 +108,10 @@ static BOOL _showing;
         UIColor *textColor = maskType == MFHUDMaskTypeLight ? [UIColor blackColor] : [UIColor whiteColor];
         UIColor *shadowColor = maskType == MFHUDMaskTypeLight ? [UIColor blackColor] : [UIColor whiteColor];
         MFNotificationHUD *hud = [MFNotificationHUD shareinstance];
+        hud.shadowView.layer.shadowColor = shadowColor.CGColor;
         hud.blurEffectView.effect = [UIBlurEffect effectWithStyle:style];
         hud.titleLabel.textColor = textColor;
         hud.indicatorView.activityIndicatorViewStyle = maskType == MFHUDMaskTypeLight ? UIActivityIndicatorViewStyleGray : UIActivityIndicatorViewStyleWhite;
-        hud.hudContainerView.layer.shadowColor = shadowColor.CGColor;
     });
     
 }
