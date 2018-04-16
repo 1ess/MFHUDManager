@@ -115,10 +115,9 @@ static BOOL _showing;
         [MFNotificationHUD shareinstance].titleLabel.text = message;
         [MFNotificationHUD shareinstance].hudWindow.hidden = NO;
         [[MFNotificationHUD shareinstance].indicatorView startAnimating];
-        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.6 initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [UIView animateWithDuration:0.1 delay:0 options:7 << 16 animations:^{
             [MFNotificationHUD shareinstance].hudContainerView.transform = CGAffineTransformIdentity;
-        } completion:^(BOOL finished) {
-        }];
+        } completion:nil];
     });
 }
 
@@ -131,10 +130,9 @@ static BOOL _showing;
         [MFNotificationHUD shareinstance].titleLabel.text = message;
         [MFNotificationHUD p_delayDismissAnimate];
         [MFNotificationHUD shareinstance].hudWindow.hidden = NO;
-        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.6 initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [UIView animateWithDuration:0.1 delay:0 options:7 << 16 animations:^{
             [MFNotificationHUD shareinstance].hudContainerView.transform = CGAffineTransformIdentity;
-        } completion:^(BOOL finished) {
-        }];
+        } completion:nil];
     });
 }
 
@@ -198,7 +196,7 @@ static BOOL _showing;
         hud.dismissTimer = timer;
         [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     } else {
-        NSTimer *timer = [NSTimer mf_scheduledTimerWithTimeInterval:2 repeats:NO block:^{
+        NSTimer *timer = [NSTimer mf_scheduledTimerWithTimeInterval:1.5 repeats:NO block:^{
             [MFNotificationHUD dismiss];
         }];
         hud.dismissTimer = timer;
