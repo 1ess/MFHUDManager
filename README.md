@@ -1,5 +1,5 @@
 
-[![](https://github.com/GodzzZZZ/Warehouse/blob/master/MFHUDManager/FotoJet.png)]()
+[![](https://github.com/GodzzZZZ/MFHUDManager/blob/master/SnapShot/1.png)]()
 
 # MFHUDManager
 
@@ -11,7 +11,7 @@
 
 ## 效果图
 
-<img src="https://github.com/GodzzZZZ/Warehouse/blob/master/MFHUDManager/1.gif" width="25%"/><img src="https://github.com/GodzzZZZ/Warehouse/blob/master/MFHUDManager/2.gif" width="25%"/><img src="https://github.com/GodzzZZZ/Warehouse/blob/master/MFHUDManager/3.gif" width="25%"/><img src="https://github.com/GodzzZZZ/Warehouse/blob/master/MFHUDManager/4.gif" width="25%"/>
+<img src="https://github.com/GodzzZZZ/MFHUDManager/blob/master/SnapShot/1.gif" width="25%"/><img src="https://github.com/GodzzZZZ/MFHUDManager/blob/master/SnapShot/2.gif" width="25%"/><img src="https://github.com/GodzzZZZ/MFHUDManager/blob/master/SnapShot/3.gif" width="25%"/><img src="https://github.com/GodzzZZZ/MFHUDManager/blob/master/SnapShot/4.gif" width="25%"/>
 
 ## 集成方式
 - cocoapod
