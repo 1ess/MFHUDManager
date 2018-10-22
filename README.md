@@ -3,7 +3,7 @@
 
 # MFHUDManager
 
-[![DUB](https://img.shields.io/dub/l/vibe-d.svg)]()
+![DUB](https://img.shields.io/dub/l/vibe-d.svg)
 ![Total-downloads](https://img.shields.io/cocoapods/dt/MFHUDManager.svg)
 ![Version](https://img.shields.io/cocoapods/v/MFHUDManager.svg?style=flat)
 ![Platform](https://img.shields.io/cocoapods/p/MFHUDManager.svg?style=flat)
